@@ -15,7 +15,7 @@ function renderizar(index) {
 }
 
 for (let index = 0; index < 12; index++) {
-    const hojeFormatado = hoje.format('MMMM');
+    const hojeFormatado = hoje.format('MMMM').toLowerCase();
     arrayMeses.push(hojeFormatado);
     hoje.add(1, 'months');
 
@@ -25,7 +25,7 @@ for (let index = 0; index < 12; index++) {
 $('.btn').addEventListener("click", () => {
     arrayMeses.filter((item, index) => {
         if(item.indexOf($('input').value) != -1) {
+            renderizar(index);
         }
-        console.log(arrayMeses[index].indexOf('a', 0));
     });
 });
