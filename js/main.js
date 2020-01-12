@@ -17,7 +17,14 @@ for (let index = 0; index < 12; index++) {
 }
 
 $('.btn').addEventListener("click", () => {
+    let arrayMesesFiltrado = [];
     arrayMeses.filter((item, index) => {
-        
+        if(item.includes($('input').value)) {
+           arrayMesesFiltrado.push(item);
+        }
+        console.log(item.match($('input').value));
     });
+    for (let index = 0; index < arrayMesesFiltrado.length; index++) {
+        lista.innerHTML = arrayMesesFiltrado;
+    }    
 });
