@@ -11,3 +11,6 @@ for (let index = 0; index < 12; index++) {
     lista.innerHTML = arrayMeses;
 }
 
+$('.btn').addEventListener('click', () => {
+    lista.innerHTML = arrayMeses.filter(item => item.includes($('input').value.toLowerCase())).join();
+});

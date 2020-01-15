@@ -9,3 +9,6 @@ for (var index = 0; index < 12; index++) {
     hoje.add(1, 'months');
     lista.innerHTML = arrayMeses;
 }
+$('.btn').addEventListener('click', function () {
+    lista.innerHTML = arrayMeses.filter(function (item) { return item.includes($('input').value.toLowerCase()); }).join();
+});
