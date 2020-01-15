@@ -1,25 +1,11 @@
-let $ = document.querySelector.bind(document);
-let hoje = moment().locale('pt-br');
-let arrayMeses = [];
-let lista = $('.lista');
-let contador = $('.contador');
-let qtde = 0;
-
-for (let index = 0; index < 12; index++) {
-    const hojeFormatado = hoje.format('MMMM').toLowerCase();
+"use strict";
+var $ = document.querySelector.bind(document);
+var hoje = moment().locale('pt-br');
+var arrayMeses = [];
+var lista = $('.lista');
+for (var index = 0; index < 12; index++) {
+    var hojeFormatado = hoje.format('MMMM').toLowerCase();
     arrayMeses.push(hojeFormatado);
     hoje.add(1, 'months');
-
-    let li = document.createElement('li');
-    li.appendChild(document.createTextNode(qtde));
-    contador.appendChild(li);
     lista.innerHTML = arrayMeses;
 }
-
-$('.btn').addEventListener("click", () => {
-    lista.innerHTML = arrayMeses
-        .filter((item) => item.includes($('input').value.toLowerCase()))
-        .reduce((total, item) => total + item + ",", "");
-});
-
-
